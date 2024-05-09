@@ -72,6 +72,15 @@ repositories {
 		}
 		metadataSources { artifact() }
 	}
+	//Terrible fix for halplibe not being found
+	ivy {
+		url = "https://github.com/Turnip-Labs"
+		patternLayout {
+			artifact "[module]/releases/download/[revision]/halplibe-[revision].jar"
+			m2compatible = true
+		}
+		metadataSources { artifact() }
+	}
 }
 
 dependencies {
