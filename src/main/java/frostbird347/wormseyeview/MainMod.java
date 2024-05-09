@@ -1,4 +1,4 @@
-package turniplabs.examplemod;
+package frostbird347.wormseyeview;
 
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -7,13 +7,12 @@ import turniplabs.halplibe.helper.BlockBuilder;
 import turniplabs.halplibe.util.GameStartEntrypoint;
 import turniplabs.halplibe.util.RecipeEntrypoint;
 
-
-public class ExampleMod implements ModInitializer, GameStartEntrypoint, RecipeEntrypoint {
-    public static final String MOD_ID = "examplemod";
+public class MainMod implements ModInitializer, GameStartEntrypoint, RecipeEntrypoint {
+    public static final String MOD_ID = "wormseyeview";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     @Override
     public void onInitialize() {
-        LOGGER.info("ExampleMod initialized.");
+        LOGGER.info("Worm's Eye View initialized.");
     }
 
 	@Override

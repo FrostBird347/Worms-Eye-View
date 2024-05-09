@@ -1,43 +1,44 @@
 {
   "schemaVersion": 1,
-  "id": "examplemod",
+  "id": "wormseyeview",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This mod aims to help new BTA modders.",
+  "name": "Worm's Eye View",
+  "description": "Enables photo mode shaders outside of photo mode.",
   "authors": [
-    "Turnip Labs"
+    "FrostBird347"
   ],
   "contact": {
-    "homepage": "",
-    "sources": ""
+    "homepage": "https://github.com/FrostBird347/Worms-Eye-View",
+    "sources": "https://github.com/FrostBird347/Worms-Eye-View"
   },
 
 	"icon": "icon.png",
-  "license": "CC0-1.0",
+  "license": "MIT",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-			"turniplabs.examplemod.ExampleMod"
+			"frostbird347.wormseyeview.MainMod"
     ],
 		"beforeGameStart": [
-			"turniplabs.examplemod.ExampleMod"
+			"frostbird347.wormseyeview.MainMod"
 		],
 		"afterGameStart": [
-			"turniplabs.examplemod.ExampleMod"
+			"frostbird347.wormseyeview.MainMod"
 		],
 		"recipesReady": [
-			"turniplabs.examplemod.ExampleMod"
+			"frostbird347.wormseyeview.MainMod"
 		]
 	},
   "mixins": [
-      "examplemod.mixins.json"
+      "wormseyeview.mixins.json"
   ],
 
   "depends": {
 		"minecraft": "~7.1",
-    "fabricloader": ">=0.15.5"
+    "fabricloader": ">=0.15.5",
+    "halplibe": ">=3.5.2"
   },
   "suggests": {
   }
