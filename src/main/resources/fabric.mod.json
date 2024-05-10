@@ -1,26 +1,26 @@
 {
-  "schemaVersion": 1,
-  "id": "wormseyeview",
-  "version": "${version}",
+	"schemaVersion": 1,
+	"id": "wormseyeview",
+	"version": "${version}",
 
-  "name": "Worm's Eye View",
-  "description": "Enables photo mode shaders outside of photo mode.",
-  "authors": [
-    "FrostBird347"
-  ],
-  "contact": {
-    "homepage": "https://github.com/FrostBird347/Worms-Eye-View",
-    "sources": "https://github.com/FrostBird347/Worms-Eye-View"
-  },
+	"name": "Worm's Eye View",
+	"description": "Enables photo mode shaders outside of photo mode.",
+	"authors": [
+		"FrostBird347"
+	],
+	"contact": {
+		"homepage": "https://github.com/FrostBird347/Worms-Eye-View",
+		"sources": "https://github.com/FrostBird347/Worms-Eye-View"
+	},
 
 	"icon": "icon.png",
-  "license": "MIT",
+	"license": "MIT",
 
-  "environment": "*",
-  "entrypoints": {
-    "main": [
+	"environment": "*",
+	"entrypoints": {
+		"main": [
 			"frostbird347.wormseyeview.MainMod"
-    ],
+		],
 		"beforeGameStart": [
 			"frostbird347.wormseyeview.MainMod"
 		],
@@ -29,17 +29,24 @@
 		],
 		"recipesReady": [
 			"frostbird347.wormseyeview.MainMod"
+		],
+		"modmenu": [
+			"frostbird347.wormseyeview.modMenu.MainEntry"
 		]
 	},
-  "mixins": [
-      "wormseyeview.mixins.json"
-  ],
+	"mixins": [
+			"wormseyeview.mixins.json"
+	],
 
-  "depends": {
+	"depends": {
 		"minecraft": "~7.1",
-    "fabricloader": ">=0.15.5",
-    "halplibe": ">=3.5.2"
-  },
-  "suggests": {
-  }
+		"fabricloader": ">=0.15.5",
+		"halplibe": ">=3.5.2",
+		"modmenu": ">=2.0.5"
+	},
+	"suggests": {
+	},
+	"custom": {
+		"modmenu:clientsideOnly": true
+	}
 }
