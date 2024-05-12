@@ -1,12 +1,9 @@
 package frostbird347.wormseyeview.mixin;
 
 import net.minecraft.client.render.shader.ShadersRenderer;
-import net.minecraft.core.Global;
 import net.minecraft.client.render.shader.PhotoModeRenderer;
 import net.minecraft.client.render.shader.ShaderProvider;
-import net.minecraft.client.render.shader.ShaderProviderExternal;
 import net.minecraft.client.render.shader.ShaderProviderInternal;
-import java.io.File;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
