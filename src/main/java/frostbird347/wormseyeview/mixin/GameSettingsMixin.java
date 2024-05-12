@@ -12,8 +12,8 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import frostbird347.wormseyeview.MainMod;
 import frostbird347.wormseyeview.ModOptions;
 
 @Mixin(value = {GameSettings.class}, remap = false)
@@ -23,7 +23,6 @@ public class GameSettingsMixin implements ModOptions {
 	public Minecraft mc;
 	
 	private final GameSettings mixinInst = (GameSettings)((Object)this);
-	private int lastShader = -1;
 
 	@Unique
 	public IntegerOption shader = new IntegerOption(this.mixinInst, "frostbird347.wormseyeview.shader", 0);
@@ -37,36 +36,28 @@ public class GameSettingsMixin implements ModOptions {
 		if (option == this.shaderIntensity) {
 			cir.setReturnValue((int)(((Float)this.shaderIntensity.value).floatValue() * 100f) + "%"); 
 		} else if (option == this.shader) {
-			if (mixinInst.shaderOverride.value != null) {
-				MainMod.LOGGER.info(mixinInst.shaderOverride.value);
-			} else {
-				MainMod.LOGGER.info("null");
-			}
-
 			if (this.shader.value >= PhotoModeRenderer.shaders.length || PhotoModeRenderer.shaders[this.shader.value] == null) {
-				this.shader.set(0);
-				mixinInst.shaderOverride.set(null);
 				cir.setReturnValue("none");
 			} else {
-				mixinInst.shaderOverride.set("photo/" + PhotoModeRenderer.shaders[this.shader.value] + "/");
 				cir.setReturnValue(PhotoModeRenderer.shaders[this.shader.value]);
-			}
-
-			if (this.shader.value != lastShader) {
-				lastShader = this.shader.value;
-				mc.render.reload();
 			}
 		}
 	}
 
-	//@Inject(method = {"optionChanged(Lnet/minecraft/client/option/Option;)V;"}, at = {@At("TAIL")})
-	//public void changeSetting(Option<?> option) {
-	//	
-	//}
+	@Inject(method = {"optionChanged(Lnet/minecraft/client/option/Option;)V"}, at = {@At("TAIL")})
+	public void changeSetting(Option<?> option, CallbackInfo ci) {
+		if (option == this.shader) {
+			if (this.shader.value >= PhotoModeRenderer.shaders.length) {
+				this.shader.set(0);
+			}
+			
+			mc.render.reload();
+		}
+	}
 
 	@Override
 	public IntegerOption shader() {
-		if (PhotoModeRenderer.shaders.length >= this.shader.value) {
+		if (this.shader.value >= PhotoModeRenderer.shaders.length) {
 			this.shader.set(0);
 		}
 		return this.shader;

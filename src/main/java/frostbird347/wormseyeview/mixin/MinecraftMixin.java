@@ -14,9 +14,14 @@ import frostbird347.wormseyeview.ModOptions;
 public class MinecraftMixin {
 	@Shadow
 	public GameSettings gameSettings;
+
+	Minecraft mixinInst = (Minecraft)((Object)this);
 	
 	@Inject(method = {"startGame"}, at = {@At("TAIL")})
 	private void startOfGameInit(CallbackInfo ci) {
-		MainMod.options = (ModOptions)((Object)this.gameSettings);
+		if (MainMod.options == null) {
+			MainMod.options = (ModOptions)((Object)this.gameSettings);
+			mixinInst.render.reload();
+		}
 	}
 }

@@ -7,7 +7,8 @@
 		],
 		"client": [
 			"GameSettingsMixin",
-			"MinecraftMixin"
+			"MinecraftMixin",
+			"ShadersRendererMixin"
 		],
 		"injectors": {
 				"defaultRequire": 1
