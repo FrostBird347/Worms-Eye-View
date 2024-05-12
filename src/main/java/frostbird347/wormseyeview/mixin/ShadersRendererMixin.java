@@ -20,8 +20,7 @@ public class ShadersRendererMixin {
 	private void getShader(CallbackInfoReturnable<ShaderProvider> cir) {
 		if (MainMod.options != null && MainMod.options.shader().value < PhotoModeRenderer.shaders.length && PhotoModeRenderer.shaders[MainMod.options.shader().value] != null) {
 			if (PhotoModeRenderer.shaders[MainMod.options.shader().value].equals("silhouette")) {
-				//TODO: use custom internal shader
-				cir.setReturnValue(new ShaderProviderExternal(new File(Global.accessor.getMinecraftDir(), "shaders/photo/showdepthBlue/")));
+				cir.setReturnValue(new ShaderProviderInternal("/shaders/wormseyeviewdepth/"));
 			} else {
 				cir.setReturnValue(new ShaderProviderInternal("/shaders/photo/" + PhotoModeRenderer.shaders[MainMod.options.shader().value] + "/"));
 			}
