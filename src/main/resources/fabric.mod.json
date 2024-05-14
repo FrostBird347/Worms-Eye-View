@@ -42,10 +42,10 @@
 	"depends": {
 		"minecraft": "~7.1",
 		"fabricloader": ">=0.15.5",
-		"halplibe": ">=3.5.2",
-		"modmenu": ">=2.0.5"
+		"halplibe": ">=3.5.2"
 	},
 	"suggests": {
+		"modmenu": ">=2.0.5"
 	},
 	"custom": {
 		"modmenu:clientsideOnly": true
