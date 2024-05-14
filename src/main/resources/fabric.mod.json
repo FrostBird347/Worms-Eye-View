@@ -25,7 +25,8 @@
 			"frostbird347.wormseyeview.MainMod"
 		],
 		"afterGameStart": [
-			"frostbird347.wormseyeview.MainMod"
+			"frostbird347.wormseyeview.MainMod",
+			"frostbird347.wormseyeview.gui.ModOptionsPage"
 		],
 		"recipesReady": [
 			"frostbird347.wormseyeview.MainMod"

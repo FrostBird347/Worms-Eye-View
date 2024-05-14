@@ -13,6 +13,7 @@ public class MainEntry implements ModMenuApi {
 		return MainMod.MOD_ID;
 	}
 	
+	@Override
 	public Function<GuiScreen, ? extends GuiScreen> getConfigScreenFactory() {
 		return ModOptionsPage::guiPage;
 	}
