@@ -10,6 +10,8 @@ A simple [BTA](https://www.minecraftforum.net/forums/mapping-and-modding-java-ed
 
 ## Showcase
 
+Note that the recording below was taken before the depth map was fixed for the `outline`, `outline2` and `distantblur` shaders.
+
 [showcase.webm](https://github.com/FrostBird347/Worms-Eye-View/assets/39435218/fe7fc76c-3370-4861-beef-f295a25b51d5)
 
 [Full video on youtube](https://www.youtube.com/watch?v=72UN2aPCUYQ)
