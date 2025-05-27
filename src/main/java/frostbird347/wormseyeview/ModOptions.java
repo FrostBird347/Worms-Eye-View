@@ -1,9 +1,9 @@
 package frostbird347.wormseyeview;
 
-import net.minecraft.client.option.FloatOption;
-import net.minecraft.client.option.IntegerOption;
+import net.minecraft.client.option.OptionFloat;
+import net.minecraft.client.option.OptionInteger;
 
 public interface ModOptions {
-	IntegerOption shader();
-	FloatOption shaderIntensity();
+	OptionInteger shader();
+	OptionFloat shaderIntensity();
 }
