@@ -4,7 +4,7 @@ import io.github.prospector.modmenu.api.ModMenuApi;
 import frostbird347.wormseyeview.gui.ModOptionsPage;
 import java.util.function.Function;
 import frostbird347.wormseyeview.MainMod;
-import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.Screen;
 
 public class MainEntry implements ModMenuApi {
 
@@ -14,7 +14,7 @@ public class MainEntry implements ModMenuApi {
 	}
 	
 	@Override
-	public Function<GuiScreen, ? extends GuiScreen> getConfigScreenFactory() {
+	public Function<Screen, ? extends Screen> getConfigScreenFactory() {
 		return ModOptionsPage::guiPage;
 	}
 	

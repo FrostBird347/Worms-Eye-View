@@ -21,7 +21,7 @@ public class MinecraftMixin {
 	private void startOfGameInit(CallbackInfo ci) {
 		if (MainMod.options == null) {
 			MainMod.options = (ModOptions)((Object)this.gameSettings);
-			mixinInst.render.reload();
+			mixinInst.renderer.reload();
 		}
 	}
 }

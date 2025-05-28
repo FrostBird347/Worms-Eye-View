@@ -1,9 +1,9 @@
 package frostbird347.wormseyeview.mixin;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.option.FloatOption;
+import net.minecraft.client.option.OptionInteger;
 import net.minecraft.client.option.GameSettings;
-import net.minecraft.client.option.IntegerOption;
+import net.minecraft.client.option.OptionFloat;
 import net.minecraft.client.option.Option;
 import net.minecraft.client.render.shader.PhotoModeRenderer;
 import org.spongepowered.asm.mixin.Final;
@@ -25,10 +25,10 @@ public class GameSettingsMixin implements ModOptions {
 	private final GameSettings mixinInst = (GameSettings)((Object)this);
 
 	@Unique
-	public IntegerOption shader = new IntegerOption(this.mixinInst, "frostbird347.wormseyeview.shader", 0);
+	public OptionInteger shader = new OptionInteger(this.mixinInst, "frostbird347.wormseyeview.shader", 0);
 	
 	@Unique
-	public FloatOption shaderIntensity = new FloatOption(this.mixinInst, "frostbird347.wormseyeview.shaderIntensity", 1f);
+	public OptionFloat shaderIntensity = new OptionFloat(this.mixinInst, "frostbird347.wormseyeview.shaderIntensity", 1f);
 	
 	@Inject(method = {"getDisplayString(Lnet/minecraft/client/option/Option;)Ljava/lang/String;"}, at = {@At("HEAD")}, cancellable = true)
 	private void displayString(Option<?> option, CallbackInfoReturnable<String> cir) {
@@ -51,12 +51,12 @@ public class GameSettingsMixin implements ModOptions {
 				this.shader.set(0);
 			}
 			
-			mc.render.reload();
+			mc.renderer.reload();
 		}
 	}
 
 	@Override
-	public IntegerOption shader() {
+	public OptionInteger shader() {
 		if (this.shader.value >= PhotoModeRenderer.shaders.length) {
 			this.shader.set(0);
 		}
@@ -64,7 +64,7 @@ public class GameSettingsMixin implements ModOptions {
 	}
 
 	@Override
-	public FloatOption shaderIntensity() {
+	public OptionFloat shaderIntensity() {
 		if (this.shaderIntensity.value > 1f) {
 			this.shaderIntensity.set(1f);
 		} else if (this.shaderIntensity.value < 0f) {
